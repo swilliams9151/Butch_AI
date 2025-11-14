@@ -1,35 +1,47 @@
-import { ColorScheme, StartScreenPrompt, ThemeOption } from "@openai/chatkit";
+import type { ChatKitOptions } from "@openai/chatkit";
 
-export const WORKFLOW_ID =
-  process.env.NEXT_PUBLIC_CHATKIT_WORKFLOW_ID?.trim() ?? "";
-
-export const CREATE_SESSION_ENDPOINT = "/api/create-session";
-
-export const STARTER_PROMPTS: StartScreenPrompt[] = [
-  {
-    label: "What can you do?",
-    prompt: "What can you do?",
-    icon: "circle-question",
+const options: ChatKitOptions = {
+  api: {
+    // TODO: configure your ChatKit API integration (URL, auth, uploads).
   },
-];
-
-export const PLACEHOLDER_INPUT = "Ask Butch a question...";
-
-export const GREETING = "Hello! I'm Butch, your AI-powered assistant. How can I help you today?";
-
-export const getThemeConfig = (theme: ColorScheme): ThemeOption => ({
-  color: {
-    grayscale: {
-      hue: 220,
-      tint: 6,
-      shade: theme === "light" ? -1 : -4,
+  theme: {
+    colorScheme: 'light',
+    radius: 'pill',
+    density: 'normal',
+    color: {
+      accent: {
+        primary: '#4f0e77',
+        level: 1
+      },
+      surface: {
+        background: '#ffffff',
+        foreground: '#ffffff'
+      }
     },
-    accent: {
-      primary: theme === "light" ? "#f1f5f9" : "#6a00cd",
-      level: 1,
+    typography: {
+      baseSize: 16,
+      fontFamily: 'Lora, serif',
+      fontSources: [
+        {
+          family: 'Lora',
+          src: 'https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwr7I_FMl_E.woff2',
+          weight: 400,
+          style: 'normal',
+          display: 'swap'
+        }
+      // ...and 7 more font sources
+      ]
+    }
+  },
+  composer: {
+    placeholder: 'Ask Butch a question...',
+    attachments: {
+      enabled: false
     },
   },
-  radius: "round",
-  // Add other theme options here
-  // chatkit.studio/playground to explore config options
-});
+  startScreen: {
+    greeting: '🐝 Hello! I\'m Butch , your AI-powered assistant. How can I help you today?',
+    prompts: [],
+  },
+  // Optional fields not shown: locale, initialThread, threadItemActions, header, onClientTool, entities, widgets
+};
