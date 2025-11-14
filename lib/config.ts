@@ -22,10 +22,10 @@ export const getThemeConfig = (theme: ColorScheme): ThemeOption => ({
     grayscale: {
       hue: 220,
       tint: 6,
-      shade: theme === "dark" ? -1 : -4,
+      shade: theme === "light" ? -1 : -4,
     },
     accent: {
-      primary: theme === "dark" ? "#f1f5f9" : "#6a00cd",
+      primary: theme === "light" ? "#f1f5f9" : "#6a00cd",
       level: 1,
     },
   },
