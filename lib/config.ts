@@ -40,7 +40,7 @@ const options: ChatKitOptions = {
     },
   },
   startScreen: {
-    greeting: '🐝 Hello! I\'m Butch , your AI-powered assistant. How can I help you today?',
+    greeting: '🐝 Hello! I'm Butch, your AI-powered assistant. How can I help you today?',
     prompts: [],
   },
   // Optional fields not shown: locale, initialThread, threadItemActions, header, onClientTool, entities, widgets
